@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import TitleContainer from './components/TitleContainer';
-import TitlesList from './components/TitlesList';
+import TitleDetailContainer from './components/TitleDetailContainer';
+import TitlesListContainer from './components/TitlesListContainer';
 
 import './App.css';
 
@@ -16,8 +16,8 @@ class App extends React.Component {
             <img src={logoSvg} className="App-logo" alt="logo" />
             <h1 className="App-title">Welcome to React</h1>
           </header>
-          <Route path="/title/:TitleId" component={TitleContainer} />
-          <Route exact={true} path="/" component={TitlesList} />
+          <Route path="/title/:TitleId" component={TitleDetailContainer} />
+          <Route exact={true} path="/" component={TitlesListContainer} />
         </div>
       </Router>
     );

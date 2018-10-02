@@ -6,8 +6,8 @@ const Participants = ({ title }: any) => (
       title.Participants.length > 0 && (
         <div>
           <h3>Credits</h3>
-          {title.Participants.map((participant: any) => (
-            <div key={participant.ParticipantId}>
+          {title.Participants.map((participant: any, idx: number) => (
+            <div key={`participant_${idx}`}>
               <p>
                 {participant.Name}
                 {participant.RoleType && `, ${participant.RoleType}`}

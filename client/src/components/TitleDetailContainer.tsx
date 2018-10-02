@@ -3,12 +3,15 @@ import TitleDetail from './TitleDetail';
 
 const TITLES_API: string = 'http://localhost:5000/titles';
 
-// interface ITitleContainerProps {};
-interface ITitleContainerState {
+// interface ITitleDetailContainerProps {};
+interface ITitleDetailContainerState {
   data: any;
 }
 
-class TitleContainer extends React.Component<any, ITitleContainerState> {
+class TitleDetailContainer extends React.Component<
+  any,
+  ITitleDetailContainerState
+> {
   constructor(props: any) {
     super(props);
 
@@ -25,7 +28,7 @@ class TitleContainer extends React.Component<any, ITitleContainerState> {
       const json: {} = await res.json();
       this.setState({ data: json });
     } catch (err) {
-      alert(`Whoops! Looks like we couldn\'t get any titles!\n\n${err}`);
+      alert(`Whoops! Looks like we couldn\'t get this title!\n\n${err}`);
     }
   }
 
@@ -42,4 +45,4 @@ class TitleContainer extends React.Component<any, ITitleContainerState> {
   }
 }
 
-export default TitleContainer;
+export default TitleDetailContainer;
