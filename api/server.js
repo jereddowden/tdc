@@ -24,10 +24,12 @@ mongoose
   )
   .then(
     () => {
-      console.log('Database is connected');
+      console.log('Database is connected'); /* eslint no-console: 0 */
     },
     err => {
-      console.log(`Cannot connect to the database ${err}`);
+      console.log(
+        `Cannot connect to the database ${err}`
+      ); /* eslint no-console: 0 */
     }
   );
 
@@ -42,6 +44,8 @@ app.use(bodyParser.json());
 
 app.use('/titles', titleRoutes);
 
-app.listen(port, () => console.log(`Listening on port ${port}`));
+app.listen(port, () =>
+  console.log(`Listening on port ${port}`)
+); /* eslint no-console: 0 */
 
 module.exports = app;
