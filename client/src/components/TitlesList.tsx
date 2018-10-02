@@ -1,14 +1,15 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 
 const TITLES_API: string = 'http://localhost:5000/titles';
 
-// interface ITitleListProps {};
-interface ITitleListState {
+// interface ITitlesListProps {};
+interface ITitlesListState {
   data: [];
 }
 
-class TitleList extends React.Component<{}, ITitleListState> {
-  constructor(props: React.Props<TitleList>) {
+class TitlesList extends React.Component<{}, ITitlesListState> {
+  constructor(props: React.Props<TitlesList>) {
     super(props);
 
     this.state = {
@@ -32,7 +33,7 @@ class TitleList extends React.Component<{}, ITitleListState> {
         {this.state.data.length > 0 ? (
           this.state.data.map((title: any) => (
             <li key={title._id}>
-              <a href={`/title/${title._id}`}>{title.TitleName}</a>
+              <Link to={`/title/${title._id}`}>{title.TitleName}</Link>
             </li>
           ))
         ) : (
@@ -43,4 +44,4 @@ class TitleList extends React.Component<{}, ITitleListState> {
   }
 }
 
-export default TitleList;
+export default TitlesList;
