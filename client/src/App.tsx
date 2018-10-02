@@ -16,7 +16,7 @@ class App extends React.Component {
             <img src={logoSvg} className="App-logo" alt="logo" />
             <h1 className="App-title">Welcome to React</h1>
           </header>
-          <Route path="/title/:titleId" component={TitleContainer} />
+          <Route path="/title/:TitleId" component={TitleContainer} />
           <Route exact={true} path="/" component={TitlesList} />
         </div>
       </Router>

@@ -32,8 +32,8 @@ class TitlesList extends React.Component<{}, ITitlesListState> {
       <ul>
         {this.state.data.length > 0 ? (
           this.state.data.map((title: any) => (
-            <li key={title._id}>
-              <Link to={`/title/${title._id}`}>{title.TitleName}</Link>
+            <li key={title.TitleId}>
+              <Link to={`/title/${title.TitleId}`}>{title.TitleName}</Link>
             </li>
           ))
         ) : (
