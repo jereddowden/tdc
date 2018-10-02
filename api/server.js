@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
@@ -29,6 +30,13 @@ mongoose
       console.log(`Cannot connect to the database ${err}`);
     }
   );
+
+app.use(
+  cors({
+    origin: 'http://localhost:3000',
+    optionsSuccessStatus: 200
+  })
+);
 
 app.use(bodyParser.json());
 
