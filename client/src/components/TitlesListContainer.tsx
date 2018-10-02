@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import Grid from '@material-ui/core/Grid';
+import TextField from '@material-ui/core/TextField';
 import TitlesList from './TitlesList';
 
 const TITLES_API: string = 'http://localhost:5000/titles';
@@ -25,9 +27,9 @@ class TitlesListContainer extends React.Component<
     this.handleSearch = this.handleSearch.bind(this);
   }
 
-  public handleSearch(event: React.KeyboardEvent<HTMLInputElement>): void {
+  public handleSearch(event: React.KeyboardEvent<HTMLDivElement>): void {
     const filteredTitles = this.state.data.filter((title: any) =>
-      title.TitleName.includes(event.currentTarget.value)
+      title.TitleName.includes((event.target as HTMLInputElement).value)
     );
     this.setState({ filteredData: filteredTitles });
   }
@@ -45,16 +47,27 @@ class TitlesListContainer extends React.Component<
 
   public render() {
     return (
-      <div>
-        <div>
-          <input
+      <Grid
+        container={true}
+        direction="column"
+        spacing={32}
+        justify="center"
+        alignItems="center"
+      >
+        <Grid item={true} xs={12}>
+          <TextField
             type="text"
+            label="Search"
             placeholder="Search for a Title"
             onKeyUp={this.handleSearch}
+            margin="normal"
+            variant="outlined"
           />
-        </div>
-        <TitlesList titles={this.state.filteredData || this.state.data} />
-      </div>
+        </Grid>
+        <Grid item={true} xs={12}>
+          <TitlesList titles={this.state.filteredData || this.state.data} />
+        </Grid>
+      </Grid>
     );
   }
 }

@@ -38,7 +38,7 @@ class TitleDetailContainer extends React.Component<
         {this.state.data ? (
           <TitleDetail title={this.state.data} />
         ) : (
-          <span>No Titles Found</span>
+          <span>Sorry! Nothing to See Here.</span>
         )}
       </div>
     );

@@ -13,7 +13,7 @@ const CONNECTION_URI =
   'mongodb://readonly:turner@ds043348.mongolab.com:43348/dev-challenge';
 
 mongoose.Promise = global.Promise;
-mongoose.set('debug', true);
+mongoose.set('debug', false);
 
 mongoose
   .connect(
